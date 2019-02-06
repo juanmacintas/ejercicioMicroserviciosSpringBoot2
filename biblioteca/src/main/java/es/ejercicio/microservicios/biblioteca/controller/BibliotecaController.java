@@ -221,17 +221,13 @@ public class BibliotecaController {
 
 	private LibroBibliotecaDTO obtenerValoresLibro(LibroDTO libro) {
 		log.debug("Se obtienen los datos del libro:" + libro);
-		ResponseEntity<AutorDTO> autor = clienteAutores.obtenerAutor(libro.getAutor().toString());
-		EditorialDTO editorial = clienteEditoriales.obtenerEditorial(libro.getEditorial().toString());
-		CategoriaDTO categoria = clienteCategorias.obtenerCategoria(libro.getCategoria().toString());
-
 		return LibroBibliotecaDTO.builder()
 							.id(libro.getId())
 							.titulo(libro.getTitulo())
 							.descripcion(libro.getDescripcion())
-							.categoria(categoria.getNombre())
-							.editorial(editorial.getNombre())
-							.autor(autor.getBody().getNombre())
+							.categoria(libro.getCategoria().getNombre())
+							.editorial(libro.getEditorial().getNombre())
+							.autor(libro.getAutor().getNombre())
 							.build();
   }
 
