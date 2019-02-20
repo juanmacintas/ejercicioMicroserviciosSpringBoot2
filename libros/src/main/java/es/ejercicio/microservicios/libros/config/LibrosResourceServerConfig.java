@@ -27,10 +27,10 @@ public class LibrosResourceServerConfig  extends ResourceServerConfigurerAdapter
                 	antMatchers(AUTH_WHITELIST).permitAll().
                 	and()
              .authorizeRequests().
-                	antMatchers("/libros/**").permitAll().
-                    antMatchers("/categorias/**").permitAll().
-                    antMatchers("/editoriales/**").permitAll().
-        			antMatchers("/autores/**").permitAll();
+                	antMatchers("/libros/**").authenticated().
+                    antMatchers("/categorias/**").authenticated().
+                    antMatchers("/editoriales/**").authenticated().
+        			antMatchers("/autores/**").authenticated();
     }
 
 }
