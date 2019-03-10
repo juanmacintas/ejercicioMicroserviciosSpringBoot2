@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.ejercicio.microservicios.biblioteca.config.Oauth2ClientConfig;
 import es.ejercicio.microservicios.biblioteca.control.ControlEditoriales;
 import es.ejercicio.microservicios.dto.EditorialDTO;
 
-@FeignClient(name="libros", fallbackFactory = ControlEditoriales.class)
+@FeignClient(name="libros", fallbackFactory = ControlEditoriales.class,
+			 configuration = Oauth2ClientConfig.class)
 public interface ClienteEditoriales {
 
     @RequestMapping(path = "/editoriales/getAll",
