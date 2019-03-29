@@ -9,7 +9,6 @@
     <modules>
         <module>ServidorConfiguracion</module>
         <module>ServidorRegistro</module>
-        <module>ServidorZipkin</module>
         <module>ServidorAutorizacion</module>
         <module>ServicioZuul</module>
         <module>ServidorHystrix</module>
